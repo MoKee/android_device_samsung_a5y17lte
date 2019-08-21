@@ -23,9 +23,9 @@ DEVICE=a5y17lte
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-LINEAGE_ROOT="$MY_DIR"/../../..
+MK_ROOT="$MY_DIR"/../../..
 
-HELPER="$LINEAGE_ROOT"/vendor/lineage/build/tools/extract_utils.sh
+HELPER="$MK_ROOT"/vendor/mk/build/tools/extract_utils.sh
 if [ ! -f "$HELPER" ]; then
     echo "Unable to find helper script at $HELPER"
     exit 1
@@ -49,7 +49,7 @@ else
 fi
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" true
+setup_vendor "$DEVICE" "$VENDOR" "$MK_ROOT" true
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC"
 
